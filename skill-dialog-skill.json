@@ -1,0 +1,413 @@
+{
+  "intents": [
+    {
+      "intent": "area",
+      "examples": [
+        {
+          "text": "Quais são as areas de concentração?"
+        },
+        {
+          "text": "Quais são as areas de pesquisa?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "duração",
+      "examples": [
+        {
+          "text": "Até quanto tempo de curso?"
+        },
+        {
+          "text": "No mínimo quanto tempo de curso?"
+        },
+        {
+          "text": "Qual a duração do curso?"
+        },
+        {
+          "text": "Qual a duração do doutorado?"
+        },
+        {
+          "text": "Qual a duração do mestrado?"
+        },
+        {
+          "text": "Quanto tempo de curso?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "linha",
+      "examples": [
+        {
+          "text": "Quais as linhas de pesquisa?"
+        },
+        {
+          "text": "Que linhas de pesquisa posso estudar?"
+        },
+        {
+          "text": "Que linhas de pesquisa vocês seguem?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "localização",
+      "examples": [
+        {
+          "text": "Onde fica o campus?"
+        },
+        {
+          "text": "Onde vou ter minhas aulas?"
+        },
+        {
+          "text": "Qual a localização da universidade?"
+        },
+        {
+          "text": "Qual o endereço?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "mensalidade",
+      "examples": [
+        {
+          "text": "Qual a mensalidade do curso?"
+        },
+        {
+          "text": "Qual a mensalidade do doutorado?"
+        },
+        {
+          "text": "Qual a mensalidade do mestrado?"
+        },
+        {
+          "text": "Qual o valor da mensalidade?"
+        },
+        {
+          "text": "Quanto custa o curso?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "periodo",
+      "examples": [
+        {
+          "text": "A que horas são as aulas?"
+        },
+        {
+          "text": "Qual o horário do curso?"
+        },
+        {
+          "text": "Qual o período do curso?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "area",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Inteligência Artificial Aplicada à Automação e Robótica",
+          "synonyms": [
+            "Automação",
+            "Inteligência Artificial",
+            "Robótica"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Nanoeletrônica e Circuitos Integrados",
+          "synonyms": [
+            "Circuitos",
+            "Circuitos Integrados",
+            "Nanoeletrônica"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Processamento de Sinais e Imagens",
+          "synonyms": [
+            "Processamento de Imagens",
+            "Processamento de Sinais"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "linha",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Caracterização Elétrica de Dispositivos Eletrônicos",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Processamento de Informação Visual e Cognitiva",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Processamento de Sinais Analógicos e Digitais",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Projeto de Circuitos Integrados Dedicados",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Raciocínio Automático e Aprendizado de Máquina",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Reconhecimento de Padrões",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Robótica Inteligente",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Simulação e Modelagem Analítica de Dispositivos Eletrônicos",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Sistemas Inteligentes e Interativos",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nivel_curso",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "doutorado",
+          "synonyms": [
+            "Doutorado",
+            "phd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "mestrado",
+          "synonyms": [
+            "Mestrado"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "orgao_fomento",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "CNPq",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "FAPESP",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Como posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_1_1632964845151",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1632965190596",
+      "context": {
+        "nivel_curso": "@nivel_curso"
+      },
+      "conditions": "@nivel_curso",
+      "event_name": "input",
+      "dialog_node": "handler_1_1632965190597"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Por favor, especifique o nível do curso (Mestrado ou Doutorado)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_9_1632965190596",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1632965190597",
+      "previous_sibling": "handler_1_1632965190597"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Tanto o Mestrado como o Doutorado, as aulas serão ministradas no horário noturno, tendo início as 18:30 e terminando as 22:10."
+              },
+              {
+                "text": "O curso é feito no período noturno."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#periodo",
+      "dialog_node": "node_1_1632964845151",
+      "previous_sibling": "node_8_1632964976315"
+    },
+    {
+      "type": "frame",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#duração",
+      "dialog_node": "node_8_1632964976315",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O curso de Doutorado não poderá ser concluído em período inferior a 24 (vinte e quatro) e superior a 60 (sessenta) meses."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1632964976315",
+      "conditions": "@nivel_curso:doutorado",
+      "dialog_node": "response_1_1632965071942",
+      "previous_sibling": "slot_9_1632965190596"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O curso de Mestrado não poderá ser concluído em período inferior a 12 (doze) e superior a 36 (trinta e seis) meses."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1632964976315",
+      "conditions": "@nivel_curso:mestrado",
+      "dialog_node": "response_7_1632965126371",
+      "previous_sibling": "response_1_1632965071942"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1632964976315",
+      "variable": "$nivel_curso",
+      "dialog_node": "slot_9_1632965190596"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "dialog skill",
+  "language": "pt-br",
+  "description": ""
+}
