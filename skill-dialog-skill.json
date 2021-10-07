@@ -8,6 +8,9 @@
         },
         {
           "text": "Quais são as areas de pesquisa?"
+        },
+        {
+          "text": "Qual são as areas de atuação?"
         }
       ],
       "description": ""
@@ -140,57 +143,6 @@
       "fuzzy_match": true
     },
     {
-      "entity": "linha",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "Caracterização Elétrica de Dispositivos Eletrônicos",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Processamento de Informação Visual e Cognitiva",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Processamento de Sinais Analógicos e Digitais",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Projeto de Circuitos Integrados Dedicados",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Raciocínio Automático e Aprendizado de Máquina",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Reconhecimento de Padrões",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Robótica Inteligente",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Simulação e Modelagem Analítica de Dispositivos Eletrônicos",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "Sistemas Inteligentes e Interativos",
-          "synonyms": []
-        }
-      ],
-      "fuzzy_match": true
-    },
-    {
       "entity": "nivel_curso",
       "values": [
         {
@@ -207,22 +159,6 @@
           "synonyms": [
             "Mestrado"
           ]
-        }
-      ],
-      "fuzzy_match": true
-    },
-    {
-      "entity": "orgao_fomento",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "CNPq",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "FAPESP",
-          "synonyms": []
         }
       ],
       "fuzzy_match": true
@@ -284,6 +220,17 @@
     {
       "type": "event_handler",
       "output": {},
+      "parent": "slot_3_1633569718923",
+      "context": {
+        "area": "@area"
+      },
+      "conditions": "@area",
+      "event_name": "input",
+      "dialog_node": "handler_10_1633569718951"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
       "parent": "slot_9_1632965190596",
       "context": {
         "nivel_curso": "@nivel_curso"
@@ -313,6 +260,103 @@
       "previous_sibling": "handler_1_1632965190597"
     },
     {
+      "type": "event_handler",
+      "parent": "slot_3_1633569157268",
+      "event_name": "input",
+      "dialog_node": "handler_3_1633569157288"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Por favor, informe a área de concentração desejada."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1633569718923",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1633569718951",
+      "previous_sibling": "handler_10_1633569718951"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As Linhas de Pesquisa dessa área são: Caracterização Elétrica de Dispositivos Eletrônicos, Simulação e Modelagem Analítica de Dispositivos Eletrônicos, e Projeto de Circuitos Integrados Dedicados"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1633569718923",
+      "conditions": "@area:(Nanoeletrônica e Circuitos Integrados)",
+      "event_name": "filled",
+      "dialog_node": "handler_3_1633569852787",
+      "previous_sibling": "handler_3_1633569718951"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As Linhas de Pesquisa dessa área são: Processamento de Sinais Analógicos e Digitais, Processamento de Informação Visual e Cognitiva, e Reconhecimento de Padrões."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1633569718923",
+      "conditions": "@area:(Processamento de Sinais e Imagens)",
+      "event_name": "filled",
+      "dialog_node": "handler_3_1633570325688",
+      "previous_sibling": "handler_5_1633570264166"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1633569157268",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1633569157288",
+      "previous_sibling": "handler_3_1633569157288"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As Linhas de Pesquisa dessa área são: Raciocínio Automático e Aprendizado de Máquina, Robótica Inteligente, e Sistemas Inteligentes e Interativos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1633569718923",
+      "conditions": "@area:(Inteligência Artificial Aplicada à Automação e Robótica)",
+      "event_name": "filled",
+      "dialog_node": "handler_5_1633570264166",
+      "previous_sibling": "handler_3_1633569852787"
+    },
+    {
       "type": "standard",
       "output": {
         "generic": [
@@ -335,6 +379,80 @@
       "previous_sibling": "node_8_1632964976315"
     },
     {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Av. Humberto de Alencar Castelo Branco, 3972-B - Assunção, São Bernardo do Campo - SP, 09850-901"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#localização",
+      "dialog_node": "node_1_1633569704436",
+      "previous_sibling": "node_7_1633571004607"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Inteligência Artificial Aplicada à Automação e Robótica, Nanoeletrônica e Circuitos Integrados e Processamento de Sinais e Imagens."
+              },
+              {
+                "text": "Processamento de Sinais e Imagens, Inteligência Artificial Aplicada à Automação e Robótica e Nanoeletrônica e Circuitos Integrados"
+              },
+              {
+                "text": "Nanoeletrônica e Circuitos Integrados, Inteligência Artificial Aplicada à Automação e Robótica e Processamento de Sinais e Imagens"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#area",
+      "dialog_node": "node_4_1633569125265",
+      "previous_sibling": "node_4_1633569689848"
+    },
+    {
+      "type": "frame",
+      "conditions": "#linha",
+      "dialog_node": "node_4_1633569689848",
+      "previous_sibling": "node_1_1633569704436"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para ambos os cursos, de Mestrado e Doutorado, o valor da mensalidade é de R$ 2.265,00."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#mensalidade",
+      "dialog_node": "node_7_1633571004607",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
       "type": "frame",
       "metadata": {
         "_customization": {
@@ -343,7 +461,7 @@
       },
       "conditions": "#duração",
       "dialog_node": "node_8_1632964976315",
-      "previous_sibling": "Bem-vindo"
+      "previous_sibling": "node_4_1633569125265"
     },
     {
       "type": "response_condition",
@@ -384,6 +502,18 @@
       "conditions": "@nivel_curso:mestrado",
       "dialog_node": "response_7_1632965126371",
       "previous_sibling": "response_1_1632965071942"
+    },
+    {
+      "type": "slot",
+      "parent": "node_4_1633569125265",
+      "dialog_node": "slot_3_1633569157268"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_4_1633569689848",
+      "variable": "$area",
+      "dialog_node": "slot_3_1633569718923"
     },
     {
       "type": "slot",
